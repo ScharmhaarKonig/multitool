@@ -12,7 +12,7 @@ const Converter = () => {
 
     // Create a temporary anchor element for downloading the file
     const downloadLink = document.createElement('a');
-    downloadLink.href = `your_download_url_here`; // Replace 'your_download_url_here' with the actual download URL
+    downloadLink.href = '/Downloads'; // Replace 'your_download_url_here' with the actual download URL
 
     // Set the download attribute with the desired file name
     downloadLink.setAttribute('download', `converted_file.${conversionType}`);
