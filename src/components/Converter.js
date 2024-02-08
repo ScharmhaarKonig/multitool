@@ -9,6 +9,16 @@ const Converter = () => {
     // Add your conversion logic here based on the inputLink and conversionType
     // For simplicity, just display a message
     setOutput(`Converted ${inputLink} to ${conversionType}`);
+
+    // Create a temporary anchor element for downloading the file
+    const downloadLink = document.createElement('a');
+    downloadLink.href = `your_download_url_here`; // Replace 'your_download_url_here' with the actual download URL
+
+    // Set the download attribute with the desired file name
+    downloadLink.setAttribute('download', `converted_file.${conversionType}`);
+
+    // Simulate a click on the anchor element to trigger the download
+    downloadLink.click();
   };
 
   return (

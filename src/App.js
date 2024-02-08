@@ -1,7 +1,6 @@
-// App.js
 import React, { useState } from 'react';
-import Calculator from './components/Calculator';
 import Converter from './components/Converter';
+import Formulas from './components/Formulas';
 
 function App() {
   const [selectedOption, setSelectedOption] = useState('');
@@ -9,7 +8,7 @@ function App() {
   const renderComponent = () => {
     switch (selectedOption) {
       case '1':
-        return <Calculator />;
+        return <Formulas/>;
       case '2':
         return <Converter />;
       // Add more cases for additional tools
