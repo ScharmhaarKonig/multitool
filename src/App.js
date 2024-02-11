@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Converter from './components/Converter';
 import Formulas from './components/Formulas';
+import Unitconverter from './components/Unitconverter';
 
 function App() {
   const [selectedOption, setSelectedOption] = useState('');
@@ -11,7 +12,8 @@ function App() {
         return <Formulas/>;
       case '2':
         return <Converter />;
-      // Add more cases for additional tools
+      case '3':
+        return <Unitconverter />;
       default:
         return null;
     }
