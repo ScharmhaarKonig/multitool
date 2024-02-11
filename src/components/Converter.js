@@ -5,20 +5,21 @@ const Converter = () => {
   const [inputLink, setInputLink] = useState('');
   const [output, setOutput] = useState('');
 
-  const handleConvert = () => {
-    // Add your conversion logic here based on the inputLink and conversionType
-    // For simplicity, just display a message
-    setOutput(`Converted ${inputLink} to ${conversionType}`);
+  const handleConvert = async () => {
+    const response = await fetch('http://localhost:5000/convert', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ inputLink, conversionType }),
+    });
 
-    // Create a temporary anchor element for downloading the file
-    const downloadLink = document.createElement('a');
-    downloadLink.href = '/Downloads'; // Replace 'your_download_url_here' with the actual download URL
-
-    // Set the download attribute with the desired file name
-    downloadLink.setAttribute('download', `converted_file.${conversionType}`);
-
-    // Simulate a click on the anchor element to trigger the download
-    downloadLink.click();
+    if (response.ok) {
+      const data = await response.json();
+      setOutput(data.message);
+    } else {
+      setOutput('Error converting the file. Please try again.');
+    }
   };
 
   return (
