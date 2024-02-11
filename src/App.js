@@ -9,7 +9,7 @@ function App() {
   const renderComponent = () => {
     switch (selectedOption) {
       case '1':
-        return <Formulas/>;
+        return <Formulas />;
       case '2':
         return <Converter />;
       case '3':
@@ -20,15 +20,27 @@ function App() {
   };
 
   return (
-    <div style={{ backgroundColor: 'black', color: 'green', fontFamily: 'monospace' }}>
-      <h1>Multitool App</h1>
-      <p>Choose an option:</p>
-      <input
-        type="text"
-        value={selectedOption}
-        onChange={(e) => setSelectedOption(e.target.value)}
-      />
-      {renderComponent()}
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: 'black', color: 'green', fontFamily: 'VT323', height: '100vh' }}>
+      <h1 style={{ marginTop: '20px' }}>Multitool App</h1>
+      <div style={{ display: 'flex', flex: 1 }}>
+        <div style={{ flex: 1, padding: '10px' }}>
+          <p>Choose an option:</p>
+          <input
+            type="text"
+            value={selectedOption}
+            onChange={(e) => setSelectedOption(e.target.value)}
+          />
+          {renderComponent()}
+        </div>
+        <div style={{ width: '200px', padding: '10px', backgroundColor: 'black', color: 'green', marginLeft: '300px' }}>
+          <p>Options:</p>
+          <ul>
+            <li onClick={() => setSelectedOption('1')}>1. Formulas</li>
+            <li onClick={() => setSelectedOption('2')}>2. Converter</li>
+            <li onClick={() => setSelectedOption('3')}>3. Unitconverter</li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
