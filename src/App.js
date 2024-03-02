@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Converter from './components/Converter';
 import Formulas from './components/Formulas';
 import Unitconverter from './components/Unitconverter';
+import QuoteofthedayRandomizer from './components/QuoteofthedayRandomizer';
 
 function App() {
   const [selectedOption, setSelectedOption] = useState('');
@@ -14,6 +15,8 @@ function App() {
         return <Converter />;
       case '3':
         return <Unitconverter />;
+      case '4': 
+        return <QuoteofthedayRandomizer/>;
       default:
         return null;
     }
@@ -38,6 +41,7 @@ function App() {
             <li onClick={() => setSelectedOption('1')}>1. Formulas</li>
             <li onClick={() => setSelectedOption('2')}>2. Converter</li>
             <li onClick={() => setSelectedOption('3')}>3. Unitconverter</li>
+            <li onClick={() => setSelectedOption('4')}>4. Quote of the day Randomizer</li>
           </ul>
         </div>
       </div>
